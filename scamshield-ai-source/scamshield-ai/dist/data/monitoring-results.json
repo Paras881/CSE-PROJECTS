@@ -1,0 +1,275 @@
+{
+  "experimentVersion": "dataguard-simulation-1",
+  "synthetic": true,
+  "seed": 2030,
+  "runsPerScenario": 200,
+  "streamLength": 500,
+  "onsetIndexZeroBased": 250,
+  "protocol": "Original fixed-window, EWMA and DKW parameters were fixed before observing results. After EWMA showed excessive stable-run alerts, an analytical Hoeffding snapshot diagnostic was added as an engineering safeguard and evaluated on the same streams. No numeric parameter tuning was performed; this addition is not an independent confirmation of superiority. Each detector can alert repeatedly; summaries use first qualifying alert per run. Error and input experiments use separate streams.",
+  "limitations": [
+    "Controlled simulation only; no claim of real-world fraud accuracy or validated deployment alarm rates.",
+    "The DKW bound is per snapshot under independent sampling; repeated rolling looks are not family-wise controlled across time.",
+    "EWMA three-sigma limits are exploratory; 200 finite streams do not establish a guaranteed false-alarm rate.",
+    "Fixed-window and EWMA compare raw binary errors. Abstained cases still have raw binary decisions for research diagnostics.",
+    "A delayed alarm can follow the change onset even if its errors arose before the change. We report arrival-time delay, not causal attribution.",
+    "The web dashboard uses a learned model's calibration error reference, selective human reviews and retained history; the simulation uses a known stationary baseline and complete labels.",
+    "The added Hoeffding diagnostic uses an independent 200-outcome reference in the simulation. In the app, sigmoid calibration fitting reuses that reference split, so the mathematical independence assumptions do not establish a deployment guarantee."
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.5.4"
+  },
+  "inputMonitoring": {
+    "referenceRows": 600,
+    "window": 50,
+    "checkEveryEvents": 10,
+    "featureCount": 3,
+    "snapshotAlpha": 0.05,
+    "dkwThreshold": 0.3016887003409828,
+    "shiftDefinition": "Word-count mean rises from 20 to 35; length follows word count; URL probability rises from 0.1 to 0.5. Gradual shift takes 100 events.",
+    "scenarios": {
+      "stable": {
+        "runs": 200,
+        "anyAlarmRate": 0.01,
+        "preChangeFalseAlarmRate": null,
+        "stableRunFalseAlarmRate": 0.01,
+        "detectedAfterChange": null,
+        "undetectedAfterChange": null,
+        "detectionRate": null,
+        "medianDelayEventsAmongDetected": null,
+        "p90DelayEventsAmongDetected": null,
+        "horizonEvents": 500,
+        "firstStableSnapshotFlagRate": 0.0
+      },
+      "abrupt": {
+        "runs": 200,
+        "anyAlarmRate": 1.0,
+        "preChangeFalseAlarmRate": 0.0,
+        "stableRunFalseAlarmRate": null,
+        "detectedAfterChange": 200,
+        "undetectedAfterChange": 0,
+        "detectionRate": 1.0,
+        "medianDelayEventsAmongDetected": 19.0,
+        "p90DelayEventsAmongDetected": 19.0,
+        "horizonEvents": 500,
+        "firstStableSnapshotFlagRate": 0.0
+      },
+      "gradual": {
+        "runs": 200,
+        "anyAlarmRate": 1.0,
+        "preChangeFalseAlarmRate": 0.0,
+        "stableRunFalseAlarmRate": null,
+        "detectedAfterChange": 200,
+        "undetectedAfterChange": 0,
+        "detectionRate": 1.0,
+        "medianDelayEventsAmongDetected": 49.0,
+        "p90DelayEventsAmongDetected": 59.0,
+        "horizonEvents": 500,
+        "firstStableSnapshotFlagRate": 0.0
+      }
+    }
+  },
+  "errorMonitoring": {
+    "baselineError": 0.1,
+    "postChangeError": 0.35,
+    "fixedWindow": 50,
+    "fixedThreshold": 0.22727922061357855,
+    "ewmaLambda": 0.1,
+    "ewmaThreshold": 0.3064741604835056,
+    "warmupLabels": 50,
+    "labelDelayEvents": 25,
+    "hoeffdingReferenceRows": 200,
+    "hoeffdingSnapshotAlpha": 0.05,
+    "hoeffdingMargin": 0.28809683739597625,
+    "scenarios": {
+      "stable": {
+        "fixed_window": {
+          "runs": 200,
+          "anyAlarmRate": 0.105,
+          "preChangeFalseAlarmRate": null,
+          "stableRunFalseAlarmRate": 0.105,
+          "detectedAfterChange": null,
+          "undetectedAfterChange": null,
+          "detectionRate": null,
+          "medianDelayEventsAmongDetected": null,
+          "p90DelayEventsAmongDetected": null,
+          "horizonEvents": 500
+        },
+        "ewma": {
+          "runs": 200,
+          "anyAlarmRate": 0.755,
+          "preChangeFalseAlarmRate": null,
+          "stableRunFalseAlarmRate": 0.755,
+          "detectedAfterChange": null,
+          "undetectedAfterChange": null,
+          "detectionRate": null,
+          "medianDelayEventsAmongDetected": null,
+          "p90DelayEventsAmongDetected": null,
+          "horizonEvents": 500
+        },
+        "ewma_delayed_labels": {
+          "runs": 200,
+          "anyAlarmRate": 0.73,
+          "preChangeFalseAlarmRate": null,
+          "stableRunFalseAlarmRate": 0.73,
+          "detectedAfterChange": null,
+          "undetectedAfterChange": null,
+          "detectionRate": null,
+          "medianDelayEventsAmongDetected": null,
+          "p90DelayEventsAmongDetected": null,
+          "horizonEvents": 500
+        },
+        "hoeffding_snapshot": {
+          "runs": 200,
+          "anyAlarmRate": 0.0,
+          "preChangeFalseAlarmRate": null,
+          "stableRunFalseAlarmRate": 0.0,
+          "detectedAfterChange": null,
+          "undetectedAfterChange": null,
+          "detectionRate": null,
+          "medianDelayEventsAmongDetected": null,
+          "p90DelayEventsAmongDetected": null,
+          "horizonEvents": 500
+        }
+      },
+      "abrupt": {
+        "fixed_window": {
+          "runs": 200,
+          "anyAlarmRate": 1.0,
+          "preChangeFalseAlarmRate": 0.055,
+          "stableRunFalseAlarmRate": null,
+          "detectedAfterChange": 200,
+          "undetectedAfterChange": 0,
+          "detectionRate": 1.0,
+          "medianDelayEventsAmongDetected": 26.0,
+          "p90DelayEventsAmongDetected": 38.099999999999994,
+          "horizonEvents": 500
+        },
+        "ewma": {
+          "runs": 200,
+          "anyAlarmRate": 1.0,
+          "preChangeFalseAlarmRate": 0.4,
+          "stableRunFalseAlarmRate": null,
+          "detectedAfterChange": 200,
+          "undetectedAfterChange": 0,
+          "detectionRate": 1.0,
+          "medianDelayEventsAmongDetected": 9.0,
+          "p90DelayEventsAmongDetected": 24.19999999999999,
+          "horizonEvents": 500
+        },
+        "ewma_delayed_labels": {
+          "runs": 200,
+          "anyAlarmRate": 1.0,
+          "preChangeFalseAlarmRate": 0.37,
+          "stableRunFalseAlarmRate": null,
+          "detectedAfterChange": 200,
+          "undetectedAfterChange": 0,
+          "detectionRate": 1.0,
+          "medianDelayEventsAmongDetected": 34.0,
+          "p90DelayEventsAmongDetected": 49.19999999999999,
+          "horizonEvents": 500
+        },
+        "hoeffding_snapshot": {
+          "runs": 200,
+          "anyAlarmRate": 0.94,
+          "preChangeFalseAlarmRate": 0.0,
+          "stableRunFalseAlarmRate": null,
+          "detectedAfterChange": 188,
+          "undetectedAfterChange": 12,
+          "detectionRate": 0.94,
+          "medianDelayEventsAmongDetected": 62.0,
+          "p90DelayEventsAmongDetected": 164.90000000000003,
+          "horizonEvents": 500
+        }
+      },
+      "gradual": {
+        "fixed_window": {
+          "runs": 200,
+          "anyAlarmRate": 1.0,
+          "preChangeFalseAlarmRate": 0.03,
+          "stableRunFalseAlarmRate": null,
+          "detectedAfterChange": 200,
+          "undetectedAfterChange": 0,
+          "detectionRate": 1.0,
+          "medianDelayEventsAmongDetected": 72.0,
+          "p90DelayEventsAmongDetected": 102.0,
+          "horizonEvents": 500
+        },
+        "ewma": {
+          "runs": 200,
+          "anyAlarmRate": 1.0,
+          "preChangeFalseAlarmRate": 0.45,
+          "stableRunFalseAlarmRate": null,
+          "detectedAfterChange": 200,
+          "undetectedAfterChange": 0,
+          "detectionRate": 1.0,
+          "medianDelayEventsAmongDetected": 50.0,
+          "p90DelayEventsAmongDetected": 81.19999999999999,
+          "horizonEvents": 500
+        },
+        "ewma_delayed_labels": {
+          "runs": 200,
+          "anyAlarmRate": 1.0,
+          "preChangeFalseAlarmRate": 0.415,
+          "stableRunFalseAlarmRate": null,
+          "detectedAfterChange": 200,
+          "undetectedAfterChange": 0,
+          "detectionRate": 1.0,
+          "medianDelayEventsAmongDetected": 74.0,
+          "p90DelayEventsAmongDetected": 106.19999999999999,
+          "horizonEvents": 500
+        },
+        "hoeffding_snapshot": {
+          "runs": 200,
+          "anyAlarmRate": 0.9,
+          "preChangeFalseAlarmRate": 0.0,
+          "stableRunFalseAlarmRate": null,
+          "detectedAfterChange": 180,
+          "undetectedAfterChange": 20,
+          "detectionRate": 0.9,
+          "medianDelayEventsAmongDetected": 139.5,
+          "p90DelayEventsAmongDetected": 212.2,
+          "horizonEvents": 500
+        }
+      }
+    }
+  },
+  "heldoutReplay": {
+    "status": "complete",
+    "modelVersion": "smishing-tfidf-v1",
+    "observationsSha256": "1f45e57b38119081b5257bfd555275a198ac8dee92e8aa4f4f918d1112cc1a7d",
+    "source": "Actual binary predictions and labels from the frozen grouped test split",
+    "protocol": "100 seeded permutations without replacement of the same held-out rows. No change point, no invented errors and no chronological claim. Different orders are not independent new datasets. Delayed reviews arrive exactly 25 event slots later and stop at the original message horizon.",
+    "rows": 219,
+    "actualErrors": 24,
+    "actualErrorRate": 0.1095890410958904,
+    "calibrationErrorRate": 0.0684931506849315,
+    "calibrationRows": 219,
+    "permutations": 100,
+    "seedBase": 502030,
+    "labelDelayEvents": 25,
+    "availableLabelsAtHorizonWithDelay": 194,
+    "labelCoverageAtHorizonWithDelay": 0.8858447488584474,
+    "defaultThreshold": 0.3523297047336091,
+    "ewmaThreshold": 0.24233768966757133,
+    "methods": {
+      "hoeffding_immediate": {
+        "ordersWithAnyAlert": 0,
+        "orderingAlertRate": 0.0
+      },
+      "hoeffding_delayed": {
+        "ordersWithAnyAlert": 0,
+        "orderingAlertRate": 0.0
+      },
+      "ewma_immediate": {
+        "ordersWithAnyAlert": 98,
+        "orderingAlertRate": 0.98
+      },
+      "ewma_delayed": {
+        "ordersWithAnyAlert": 93,
+        "orderingAlertRate": 0.93
+      }
+    },
+    "interpretation": "Ordering sensitivity diagnostic only. These alert frequencies are neither field false-alarm estimates nor drift detection rates. Calibration fitting reused its reference labels; actual future label delay and review selection are unknown."
+  }
+}

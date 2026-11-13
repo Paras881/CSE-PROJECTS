@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="720" viewBox="0 0 1500 720">
+<rect width="1500" height="720" fill="white"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#526779"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#172a3a}.title{font-size:28px;font-weight:bold}.label{font-size:22px;font-weight:bold}.small{font-size:20px}.box{fill:#f3f6f8;stroke:#b4c4ce;stroke-width:2}.line{fill:none;stroke:#526779;stroke-width:3;marker-end:url(#arrow)}</style>
+<text x="35" y="44" class="title">Offline research</text>
+<rect x="35" y="75" width="290" height="145" rx="10" class="box"/><text x="58" y="112" class="label">Public research SMS</text><text x="58" y="150" class="small">Audit and English scope</text><text x="58" y="182" class="small">Deduplication and grouping</text>
+<rect x="405" y="75" width="290" height="145" rx="10" class="box"/><text x="428" y="112" class="label">Separate partitions</text><text x="428" y="150" class="small">Training and calibration</text><text x="428" y="182" class="small">Untouched test groups</text>
+<rect x="775" y="75" width="290" height="145" rx="10" class="box"/><text x="798" y="112" class="label">Model comparison</text><text x="798" y="150" class="small">Text logistic regression</text><text x="798" y="182" class="small">Frozen MiniLM encoder</text>
+<rect x="1145" y="75" width="320" height="145" rx="10" class="box"/><text x="1168" y="112" class="label">Versioned release files</text><text x="1168" y="150" class="small">Model and calibration</text><text x="1168" y="182" class="small">Reference data and results</text>
+<path d="M325 148 H395" class="line"/><path d="M695 148 H765" class="line"/><path d="M1065 148 H1135" class="line"/>
+<text x="35" y="315" class="title">Browser application</text>
+<rect x="35" y="350" width="290" height="145" rx="10" class="box"/><text x="58" y="387" class="label">English message</text><text x="58" y="425" class="small">In memory during analysis</text><text x="58" y="457" class="small">Local inference only</text>
+<rect x="405" y="350" width="290" height="145" rx="10" class="box"/><text x="428" y="387" class="label">Local assessment</text><text x="428" y="425" class="small">Calibrated score and review</text><text x="428" y="457" class="small">Independent warning rules</text>
+<rect x="775" y="350" width="290" height="145" rx="10" class="box"/><text x="798" y="387" class="label">Derived history</text><text x="798" y="425" class="small">Scores and input features</text><text x="798" y="457" class="small">Confirmed label reviews</text>
+<rect x="1145" y="350" width="320" height="145" rx="10" class="box"/><text x="1168" y="387" class="label">DataGuard</text><text x="1168" y="425" class="small">Frozen reference comparison</text><text x="1168" y="457" class="small">Reviewed error diagnostics</text>
+<path d="M325 423 H395" class="line"/><path d="M695 423 H765" class="line"/><path d="M1065 423 H1135" class="line"/>
+<path d="M1300 220 V268 H550 V340" class="line"/>
+<path d="M1390 220 V340" class="line"/>
+<text x="35" y="572" class="label">Data boundary</text>
+<text x="35" y="610" class="small">Messages and matched excerpts remain in memory. Stored and exported records contain derived fields only.</text>
+<text x="35" y="649" class="small">Synthetic demo records are isolated from session records. New model versions require a new reference.</text>
+<text x="35" y="688" class="small">MiniLM is used for offline comparison. The deployed browser model uses text features and logistic regression.</text>
+</svg>

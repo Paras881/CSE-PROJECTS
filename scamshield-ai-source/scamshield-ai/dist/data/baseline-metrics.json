@@ -1,0 +1,55 @@
+{
+  "modelId": "sms-nb-v1",
+  "source": {
+    "name": "UCI SMS Spam Collection",
+    "url": "https://archive.ics.uci.edu/dataset/228/sms+spam+collection",
+    "downloadUrl": "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip",
+    "sha256": "1587ea43e58e82b14ff1f5425c88e17f8496bfcdb67a583dbff9eefaf9963ce3",
+    "license": "CC BY 4.0 (UCI repository)",
+    "citation": "Almeida, T. & Hidalgo, J. (2011). SMS Spam Collection [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5CC84."
+  },
+  "cleaning": {
+    "inputRows": 5574,
+    "uniqueRows": 5129,
+    "duplicateRowsRemoved": 443,
+    "conflictingRowsRemoved": 0,
+    "emptyTokenRowsRemoved": 2
+  },
+  "split": {
+    "method": "stratified random split after token-normalized deduplication; vocabulary fit on training only",
+    "seed": 2030,
+    "testFraction": 0.2,
+    "trainRows": 4103,
+    "testRows": 1026,
+    "trainClasses": {
+      "ham": 3600,
+      "spam": 503
+    },
+    "testClasses": {
+      "ham": 900,
+      "spam": 126
+    }
+  },
+  "vocabularySize": 3277,
+  "metrics": {
+    "task": "spam-vs-ham only",
+    "testSize": 1026,
+    "positiveClass": "spam",
+    "threshold": 0.5,
+    "accuracy": 0.9853801169590644,
+    "precision": 0.9743589743589743,
+    "recall": 0.9047619047619048,
+    "f1": 0.9382716049382716,
+    "falsePositiveRate": 0.0033333333333333335,
+    "alwaysHamAccuracy": 0.8771929824561403,
+    "logLoss": 0.11636194095404877,
+    "brierScore": 0.012829611462328873,
+    "confusionMatrix": {
+      "truePositive": 114,
+      "falsePositive": 3,
+      "trueNegative": 897,
+      "falseNegative": 12
+    },
+    "warning": "These are internal, deduplicated random-holdout SMS spam results, not scam accuracy or temporal generalization results."
+  }
+}

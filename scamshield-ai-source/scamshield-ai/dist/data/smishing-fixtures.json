@@ -1,0 +1,94 @@
+{
+  "modelVersion": "smishing-tfidf-v1",
+  "source": "Authored verification inputs, not training or test messages",
+  "fixtures": [
+    {
+      "text": "Your account is blocked. Enter your password now at https://example.invalid/verify.",
+      "score": 0.8009229502694524,
+      "rawScore": 0.42722724906492415,
+      "prediction": "smishing",
+      "coverage": 0.9,
+      "totalTokenCount": 10
+    },
+    {
+      "text": "Our project review is on Tuesday. Please bring your notes.",
+      "score": 0.51783787377833,
+      "rawScore": 0.3193018596527153,
+      "prediction": "review",
+      "coverage": 0.6,
+      "totalTokenCount": 10
+    },
+    {
+      "text": "Never share your password or OTP with someone who contacts you.",
+      "score": 0.0661044665464026,
+      "rawScore": 0.15289961111540876,
+      "prediction": "non_smishing",
+      "coverage": 0.9090909090909091,
+      "totalTokenCount": 11
+    },
+    {
+      "text": "Pay the college examination fee through the official portal.",
+      "score": 0.09416038133892365,
+      "rawScore": 0.1712081847792464,
+      "prediction": "non_smishing",
+      "coverage": 0.4444444444444444,
+      "totalTokenCount": 9
+    },
+    {
+      "text": "You won a prize. Pay a fee immediately to claim it.",
+      "score": 0.10530448127411383,
+      "rawScore": 0.17748816280687515,
+      "prediction": "non_smishing",
+      "coverage": 0.8181818181818182,
+      "totalTokenCount": 11
+    },
+    {
+      "text": "qxzv plmok zzyx",
+      "score": 0.07315812710894713,
+      "rawScore": 0.1579222731055446,
+      "prediction": "review",
+      "coverage": 0.0,
+      "totalTokenCount": 3
+    },
+    {
+      "text": "hello",
+      "score": 0.4283089861607753,
+      "rawScore": 0.29246195076711123,
+      "prediction": "review",
+      "coverage": 1.0,
+      "totalTokenCount": 1
+    },
+    {
+      "text": "\uff26\uff32\uff25\uff25 reward claim 123 at https://example.invalid/a",
+      "score": 0.23947216728142368,
+      "rawScore": 0.23363955594258262,
+      "prediction": "non_smishing",
+      "coverage": 0.8333333333333334,
+      "totalTokenCount": 6
+    },
+    {
+      "text": "Your pass\u200bword is needed urgently. Contact help@example.invalid.",
+      "score": 0.6406729240064142,
+      "rawScore": 0.35917100558232945,
+      "prediction": "review",
+      "coverage": 0.7142857142857143,
+      "totalTokenCount": 7
+    },
+    {
+      "text": "constructor __proto__ toString",
+      "score": 0.06114980385019754,
+      "rawScore": 0.14915337747701254,
+      "prediction": "review",
+      "coverage": 0.0,
+      "totalTokenCount": 3
+    },
+    {
+      "text": "\ud83c\udf40Meeting at 10\u202fAM. Bring notes.",
+      "score": 0.02454133032029447,
+      "rawScore": 0.1115195789874721,
+      "prediction": "non_smishing",
+      "coverage": 0.8333333333333334,
+      "totalTokenCount": 6
+    }
+  ]
+}

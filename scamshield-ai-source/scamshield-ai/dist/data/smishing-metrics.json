@@ -1,0 +1,469 @@
+{
+  "modelVersion": "smishing-tfidf-v1",
+  "dataset": {
+    "name": "SmishX",
+    "source": "https://github.com/yizhu-joy/SmishX",
+    "pinnedCommit": "116a8c827741e0572563f678d25ed04306b1e3ff",
+    "sha256": "8d65e373b17477c34e8f1c619e6f59d249e8fca21276cabdd03a55d11a469285",
+    "inputRows": 1200,
+    "inputLabels": {
+      "legitimate": 622,
+      "spam": 319,
+      "smishing": 259
+    },
+    "deduplicatedRows": 1107,
+    "languageExcludedRows": 11,
+    "languageExcludedLabels": {
+      "spam": 8,
+      "legitimate": 2,
+      "smishing": 1
+    },
+    "uniqueRows": 1096,
+    "labels": {
+      "legitimate": 604,
+      "spam": 267,
+      "smishing": 225
+    },
+    "emptyRows": 0,
+    "invalidLabelRows": 0,
+    "sameLabelDuplicatesRemoved": 93,
+    "conflictingLabelRowsExcluded": 0,
+    "groups": 948,
+    "multiMessageGroups": 80,
+    "largestGroup": 14,
+    "grouping": "NFKC lowercase whitespace dedup; zero-width removed; URL/email/digit-masked word templates; word-trigram Jaccard>=0.8 for >=6words; connected components. Approximate templates, not verified campaigns.",
+    "metadataAnomalies": {
+      "if_URL": 2,
+      "if_phone": 2,
+      "if_email": 2
+    },
+    "uciExactNormalizedOverlap": 509,
+    "nonLatinLetterRows": 0,
+    "languageScope": "English-only application; 11 manually inspected non-English/mojibake rows excluded before splitting. Script audit is not reliable language identification; short-text and transliteration uncertainty remain.",
+    "dateAndSourceAvailability": "No per-row time, source, or campaign identifiers. No temporal or source-held-out claim.",
+    "rights": "Authors release this research dataset in an MIT-licensed repository; underlying collected messages may have distinct rights. Raw messages are not redistributed by this project."
+  },
+  "split": {
+    "seed": 2030,
+    "method": "StratifiedGroupKFold 5 folds; fold0 test, fold1 calibration, folds2-4 train. Stratified on original3 labels.",
+    "trainRows": 658,
+    "calibrationRows": 219,
+    "testRows": 219,
+    "trainGroups": 571,
+    "calibrationGroups": 191,
+    "testGroups": 186,
+    "labelCounts": {
+      "train": {
+        "legitimate": 362,
+        "smishing": 135,
+        "spam": 161
+      },
+      "calibration": {
+        "smishing": 45,
+        "spam": 53,
+        "legitimate": 121
+      },
+      "test": {
+        "spam": 53,
+        "smishing": 45,
+        "legitimate": 121
+      }
+    }
+  },
+  "models": {
+    "tfidf": {
+      "precision": 0.8620689655172413,
+      "recall": 0.5555555555555556,
+      "f1": 0.6756756756756757,
+      "accuracy": 0.8904109589041096,
+      "confusion": {
+        "tp": 25,
+        "fp": 4,
+        "tn": 170,
+        "fn": 20
+      },
+      "intervals": {
+        "precision": [
+          0.6944100627964798,
+          0.9450256003588804
+        ],
+        "recall": [
+          0.4117613449352105,
+          0.6906106996500243
+        ],
+        "accuracy": [
+          0.8421186345003348,
+          0.9252430624879823
+        ],
+        "f1GroupBootstrap": [
+          0.44892015058450563,
+          0.9
+        ]
+      },
+      "prAuc": 0.894012915152843,
+      "brier": 0.0607033525138456,
+      "rawBrier": 0.09034623730937463,
+      "selective": {
+        "precision": 1.0,
+        "recall": 0.9047619047619048,
+        "f1": 0.95,
+        "accuracy": 0.9888268156424581,
+        "confusion": {
+          "tp": 19,
+          "fp": 0,
+          "tn": 158,
+          "fn": 2
+        },
+        "intervals": {
+          "precision": [
+            0.8318207759473837,
+            1
+          ],
+          "recall": [
+            0.7108586092608176,
+            0.9734812325619255
+          ],
+          "accuracy": [
+            0.9601828007411792,
+            0.996930542855669
+          ]
+        },
+        "coverage": 0.817351598173516,
+        "acceptedCount": 179,
+        "reviewCount": 40
+      },
+      "classFalsePositives": {
+        "legitimate": {
+          "count": 3,
+          "total": 121,
+          "rate": 0.024793388429752067
+        },
+        "spam": {
+          "count": 1,
+          "total": 53,
+          "rate": 0.018867924528301886
+        }
+      },
+      "reliabilityBins": [
+        {
+          "lower": 0.0,
+          "upper": 0.2,
+          "count": 158,
+          "meanScore": 0.028038920301104466,
+          "observedRate": 0.012658227848101266
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.4,
+          "count": 29,
+          "meanScore": 0.32520185115842676,
+          "observedRate": 0.5517241379310345
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.6,
+          "count": 6,
+          "meanScore": 0.4919216937198542,
+          "observedRate": 0.5
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.8,
+          "count": 8,
+          "meanScore": 0.685186321648122,
+          "observedRate": 0.75
+        },
+        {
+          "lower": 0.8,
+          "upper": 1.0,
+          "count": 18,
+          "meanScore": 0.9476302849293996,
+          "observedRate": 1.0
+        }
+      ],
+      "name": "Word and character TF-IDF logistic regression",
+      "testRows": 219,
+      "calibration": {
+        "slope": 2.847488679246996,
+        "intercept": 2.2268795348356356,
+        "method": "Regularized Platt sigmoid; calibration split only; C=1"
+      },
+      "latencyMsPerMessage": 0.054103118733218
+    },
+    "minilm": {
+      "precision": 0.7419354838709677,
+      "recall": 0.5111111111111111,
+      "f1": 0.6052631578947368,
+      "accuracy": 0.863013698630137,
+      "confusion": {
+        "tp": 23,
+        "fp": 8,
+        "tn": 166,
+        "fn": 22
+      },
+      "intervals": {
+        "precision": [
+          0.5675386419056621,
+          0.8629829409360625
+        ],
+        "recall": [
+          0.3700446464458318,
+          0.650429762471215
+        ],
+        "accuracy": [
+          0.811180473817297,
+          0.9023312795227172
+        ],
+        "f1GroupBootstrap": [
+          0.39022806461830856,
+          0.8333333333333334
+        ]
+      },
+      "prAuc": 0.8069871514042329,
+      "brier": 0.07914669805581878,
+      "rawBrier": 0.09129509360315825,
+      "selective": {
+        "precision": 0.8823529411764706,
+        "recall": 0.7894736842105263,
+        "f1": 0.8333333333333334,
+        "accuracy": 0.9659090909090909,
+        "confusion": {
+          "tp": 15,
+          "fp": 2,
+          "tn": 155,
+          "fn": 4
+        },
+        "intervals": {
+          "precision": [
+            0.6566364940511412,
+            0.9671202262362074
+          ],
+          "recall": [
+            0.5666572155618583,
+            0.9149232336708375
+          ],
+          "accuracy": [
+            0.9276303705506951,
+            0.9842839403953233
+          ]
+        },
+        "coverage": 0.8036529680365296,
+        "acceptedCount": 176,
+        "reviewCount": 43
+      },
+      "classFalsePositives": {
+        "legitimate": {
+          "count": 4,
+          "total": 121,
+          "rate": 0.03305785123966942
+        },
+        "spam": {
+          "count": 4,
+          "total": 53,
+          "rate": 0.07547169811320754
+        }
+      },
+      "reliabilityBins": [
+        {
+          "lower": 0.0,
+          "upper": 0.2,
+          "count": 154,
+          "meanScore": 0.04751033719497826,
+          "observedRate": 0.01948051948051948
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.4,
+          "count": 27,
+          "meanScore": 0.31279596052210806,
+          "observedRate": 0.5555555555555556
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.6,
+          "count": 14,
+          "meanScore": 0.49159130684244035,
+          "observedRate": 0.5
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.8,
+          "count": 12,
+          "meanScore": 0.7190420969826614,
+          "observedRate": 0.75
+        },
+        {
+          "lower": 0.8,
+          "upper": 1.0,
+          "count": 12,
+          "meanScore": 0.918191748118224,
+          "observedRate": 0.9166666666666666
+        }
+      ],
+      "name": "Frozen MiniLM embeddings and logistic regression",
+      "testRows": 219,
+      "calibration": {
+        "slope": 1.8860698009854042,
+        "intercept": 0.8856751314260672,
+        "method": "Regularized Platt sigmoid; calibration split only; C=1"
+      },
+      "latencyMsPerMessage": 1.3650450501786409,
+      "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+      "encoderRevision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "fineTuned": false
+    },
+    "alwaysNegative": {
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0,
+      "accuracy": 0.7945205479452054,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 174,
+        "fn": 45
+      },
+      "intervals": {
+        "precision": [
+          null,
+          null
+        ],
+        "recall": [
+          0,
+          0.07865159873288836
+        ],
+        "accuracy": [
+          0.7361508722286453,
+          0.8427360219906114
+        ],
+        "f1GroupBootstrap": [
+          0.0,
+          0.0
+        ]
+      },
+      "prAuc": 0.2054794520547945,
+      "brier": 0.2054794520547945,
+      "rawBrier": 0.2054794520547945,
+      "selective": {
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.7945205479452054,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 174,
+          "fn": 45
+        },
+        "intervals": {
+          "precision": [
+            null,
+            null
+          ],
+          "recall": [
+            0,
+            0.07865159873288836
+          ],
+          "accuracy": [
+            0.7361508722286453,
+            0.8427360219906114
+          ]
+        },
+        "coverage": 1.0,
+        "acceptedCount": 219,
+        "reviewCount": 0
+      },
+      "classFalsePositives": {
+        "legitimate": {
+          "count": 0,
+          "total": 121,
+          "rate": 0.0
+        },
+        "spam": {
+          "count": 0,
+          "total": 53,
+          "rate": 0.0
+        }
+      },
+      "reliabilityBins": [
+        {
+          "lower": 0.0,
+          "upper": 0.2,
+          "count": 219,
+          "meanScore": 0.0,
+          "observedRate": 0.2054794520547945
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.4,
+          "count": 0,
+          "meanScore": null,
+          "observedRate": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.6,
+          "count": 0,
+          "meanScore": null,
+          "observedRate": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.8,
+          "count": 0,
+          "meanScore": null,
+          "observedRate": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 1.0,
+          "count": 0,
+          "meanScore": null,
+          "observedRate": null
+        }
+      ],
+      "name": "Always predict non-smishing"
+    }
+  },
+  "abstain": {
+    "low": 0.25,
+    "high": 0.75,
+    "minCoverage": 0.2,
+    "minWords": 3
+  },
+  "deployment": {
+    "chosen": "tfidf",
+    "reason": "Fixed before held-out evaluation: small numerical artifact, offline browser inference, no external AI service. Comparison model is a research benchmark, not deployed."
+  },
+  "calibrationEvaluation": {
+    "tfidf": {
+      "before": 0.09034623730937463,
+      "after": 0.0607033525138456
+    },
+    "minilm": {
+      "before": 0.09129509360315825,
+      "after": 0.07914669805581878
+    }
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "sklearn": "1.9.1",
+    "torch": "2.15.0",
+    "cpuThreads": 2,
+    "latencyNote": "Machine-specific warmed batch throughput, not end-to-end browser latency. Lexical median of5 passes; MiniLM one whole-dataset encoding pass. Excludes model loading/download."
+  },
+  "limitations": [
+    "Small curated sample and approximate template grouping; no source/campaign/chronological generalization claim.",
+    "Labels are inherited from the source authors; no independent relabelling or user study was conducted.",
+    "English-only scope excludes11 inspected non-English or corrupted messages; remaining short/transliterated text is not language-certified.",
+    "Spam and legitimate are both non-smishing; a negative result is not a safety verdict.",
+    "Masking URLs, emails and numbers prevents using domain reputation; active-URL source sampling creates selection bias.",
+    "Frozen encoder pretraining overlap with public SMS corpora cannot be ruled out.",
+    "Confidence calibration is sample-specific; review thresholds were fixed, not proven optimal.",
+    "Wilson intervals treat messages as independent; grouped bootstrap F1 partly accounts for template dependence.",
+    "MiniLM review coverage uses the same lexical coverage gate for comparability; it is not an embedding uncertainty measure."
+  ],
+  "runDate": "2026-11-07",
+  "elapsedSeconds": 3.461065041949041
+}

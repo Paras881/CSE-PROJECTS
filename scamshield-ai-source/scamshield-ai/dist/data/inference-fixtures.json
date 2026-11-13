@@ -1,0 +1,148 @@
+[
+  {
+    "text": "Meet me at the library after class.",
+    "score": 2.8092336377013115e-05,
+    "topTokens": [
+      {
+        "token": "me",
+        "weight": -2.2252207326400004
+      },
+      {
+        "token": "at",
+        "weight": -1.6348687967710003
+      },
+      {
+        "token": "class",
+        "weight": -1.222669656482
+      },
+      {
+        "token": "after",
+        "weight": -1.029478427451
+      },
+      {
+        "token": "meet",
+        "weight": -0.9790475738240003
+      },
+      {
+        "token": "library",
+        "weight": -0.9075886098419996
+      },
+      {
+        "token": "the",
+        "weight": -0.513012901533
+      }
+    ],
+    "knownTokenCount": 7,
+    "totalTokenCount": 7
+  },
+  {
+    "text": "Congratulations! Claim your free prize now by calling this number.",
+    "score": 0.9999999865606961,
+    "topTokens": [
+      {
+        "token": "claim",
+        "weight": 5.580095408642
+      },
+      {
+        "token": "prize",
+        "weight": 5.400509831667001
+      },
+      {
+        "token": "congratulations",
+        "weight": 3.6875312402920004
+      },
+      {
+        "token": "free",
+        "weight": 2.291084507709
+      },
+      {
+        "token": "calling",
+        "weight": 0.9329610235550003
+      },
+      {
+        "token": "now",
+        "weight": 0.8286010082309998
+      },
+      {
+        "token": "your",
+        "weight": 0.8248816941349997
+      },
+      {
+        "token": "number",
+        "weight": 0.37334523562000044
+      }
+    ],
+    "knownTokenCount": 10,
+    "totalTokenCount": 10
+  },
+  {
+    "text": "Your internship is confirmed. Pay a refundable registration fee immediately to secure your position.",
+    "score": 0.638238848953446,
+    "topTokens": [
+      {
+        "token": "immediately",
+        "weight": 1.9827831480539997
+      },
+      {
+        "token": "your",
+        "weight": 1.6497633882699994
+      },
+      {
+        "token": "pay",
+        "weight": -1.3494213621210003
+      },
+      {
+        "token": "to",
+        "weight": 0.30087125075800003
+      },
+      {
+        "token": "is",
+        "weight": -0.16956516443300007
+      },
+      {
+        "token": "a",
+        "weight": 0.12139608818099923
+      }
+    ],
+    "knownTokenCount": 7,
+    "totalTokenCount": 14
+  },
+  {
+    "text": "",
+    "score": 0.12259322446994977,
+    "topTokens": [],
+    "knownTokenCount": 0,
+    "totalTokenCount": 0
+  },
+  {
+    "text": "xyzzyquux flibbertigibbet",
+    "score": 0.12259322446994977,
+    "topTokens": [],
+    "knownTokenCount": 0,
+    "totalTokenCount": 2
+  },
+  {
+    "text": "FREE free FrEe 123!",
+    "score": 0.9926461813762666,
+    "topTokens": [
+      {
+        "token": "free",
+        "weight": 6.8732535231269996
+      }
+    ],
+    "knownTokenCount": 3,
+    "totalTokenCount": 4
+  },
+  {
+    "text": "Caf\u00e9 \u2014 r\u00e9union demain \u00e0 10h",
+    "score": 0.07439941138778877,
+    "topTokens": [
+      {
+        "token": "r",
+        "weight": -0.5528958271070001
+      }
+    ],
+    "knownTokenCount": 1,
+    "totalTokenCount": 5
+  }
+]

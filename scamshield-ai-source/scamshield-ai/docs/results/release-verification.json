@@ -1,0 +1,42 @@
+{
+  "release": "0.2.0",
+  "verifiedDate": "2026-11-07",
+  "passed": true,
+  "javascriptTests": 27,
+  "pythonTests": 15,
+  "syntaxCheck": "passed",
+  "whitespaceCheck": "passed after removing a trailing README blank line",
+  "browserChecks": {
+    "modelLoads": true,
+    "analyzer": true,
+    "proposedLabelsExcluded": true,
+    "confirmedLabelsIncluded": true,
+    "unknownVocabularyDefers": true,
+    "syntheticSessionIsolation": true,
+    "labMetricsMatchArtifacts": true,
+    "featureOnlyExportDownloadedAndInspected": true,
+    "exportSchemaVersion": 2,
+    "mobileWidth": 375,
+    "horizontalOverflow": false,
+    "finalBrowserErrors": 0,
+    "finalBrowserWarnings": 0,
+    "viewportOverrideReset": true
+  },
+  "verificationLimits": [
+    "Manual browser checks used authored examples and synthetic demonstration records.",
+    "No independent security certification, prospective field evaluation, or human-review accuracy study.",
+    "Model-loading fallback and clear-history behavior inspected in code; final browser checks did not simulate network failure or delete existing history."
+  ],
+  "artifactSha256": {
+    "dist/data/baseline-metrics.json": "d8eff7bae930cd4f65904139ef78d7e10976bccf193a639c4b621721f1aba43e",
+    "dist/data/inference-fixtures.json": "c621d7e79003b6422a3ce881dc653c2ed58afcddce4f8d1cb16d5976b99cfd52",
+    "dist/data/monitoring-reference.json": "86494186a628fcb05ac916acd861b75201f49d94827aa2d0ca4e77c39c1b219d",
+    "dist/data/monitoring-results.json": "38c25adb621c32a80ef7e23ddc8851363dba7fd1c0e6775368e88e86f693d78c",
+    "dist/data/robustness-results.json": "7e86a034fccc76b4ef80026b718d0de1f69c620df4f8012aa8be7be86ab75d48",
+    "dist/data/smishing-fixtures.json": "a6f9c35e0dd3a44e474074956c5dbc87b569974a33c27279262397bb03a4402a",
+    "dist/data/smishing-metrics.json": "949f592a5df9c8137b8b1210169450475f89b3bb4dbba055dc2c08d78d71bf12",
+    "dist/data/smishing-model.json": "f57931bce8eb65642c9f09286b8b74b02d05025c180f45b126d032f1c0db4205",
+    "dist/data/spam-model.json": "a5faeb5fc4d3acc8f501678ede109d44ef91362b4dff8af9193223f20a69ae3a"
+  },
+  "deploymentStatus": "Publication is recorded separately in the accompanying release manifest; this file verifies the local software release."
+}

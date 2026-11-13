@@ -1,0 +1,43 @@
+{
+  "name": "SmishX",
+  "source": "https://github.com/yizhu-joy/SmishX",
+  "pinnedCommit": "116a8c827741e0572563f678d25ed04306b1e3ff",
+  "sha256": "8d65e373b17477c34e8f1c619e6f59d249e8fca21276cabdd03a55d11a469285",
+  "inputRows": 1200,
+  "inputLabels": {
+    "legitimate": 622,
+    "spam": 319,
+    "smishing": 259
+  },
+  "deduplicatedRows": 1107,
+  "languageExcludedRows": 11,
+  "languageExcludedLabels": {
+    "spam": 8,
+    "legitimate": 2,
+    "smishing": 1
+  },
+  "uniqueRows": 1096,
+  "labels": {
+    "legitimate": 604,
+    "spam": 267,
+    "smishing": 225
+  },
+  "emptyRows": 0,
+  "invalidLabelRows": 0,
+  "sameLabelDuplicatesRemoved": 93,
+  "conflictingLabelRowsExcluded": 0,
+  "groups": 948,
+  "multiMessageGroups": 80,
+  "largestGroup": 14,
+  "grouping": "NFKC lowercase whitespace dedup; zero-width removed; URL/email/digit-masked word templates; word-trigram Jaccard>=0.8 for >=6words; connected components. Approximate templates, not verified campaigns.",
+  "metadataAnomalies": {
+    "if_URL": 2,
+    "if_phone": 2,
+    "if_email": 2
+  },
+  "uciExactNormalizedOverlap": 509,
+  "nonLatinLetterRows": 0,
+  "languageScope": "English-only application; 11 manually inspected non-English/mojibake rows excluded before splitting. Script audit is not reliable language identification; short-text and transliteration uncertainty remain.",
+  "dateAndSourceAvailability": "No per-row time, source, or campaign identifiers. No temporal or source-held-out claim.",
+  "rights": "Authors release this research dataset in an MIT-licensed repository; underlying collected messages may have distinct rights. Raw messages are not redistributed by this project."
+}

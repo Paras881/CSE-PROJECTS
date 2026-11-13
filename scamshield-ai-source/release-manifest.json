@@ -1,0 +1,25 @@
+{
+  "release": "0.2.0",
+  "status": "Published privately",
+  "url": "https://scamshield-ai.obito-2318.chatgpt.site",
+  "projectId": "appgprj_6ae60830e7f48191858ab62b65c9a484",
+  "versionId": "appgprj_6ae60830e7f48191858ab62b65c9a484~appgver_340a072ac0348191a1c1c3aa9560adde",
+  "deploymentId": "appgdep_6aef1321f5588191a5bc5e60e6e0662d",
+  "sourceCommit": "a81c075ab7a5a1ca59d9255c7f1f80334d3a8b90",
+  "updatedAt": "2026-11-07T12:01:54.532941+00:00",
+  "access": "owner-private",
+  "javascriptTests": 27,
+  "pythonTests": 15,
+  "reportPages": 12,
+  "sourceFileCount": 57,
+  "files": {
+    "ScamShield_AI_Final_Report.pdf": {
+      "bytes": 461484,
+      "sha256": "334580ac01a0dc80d1fe91e36e218a8f1b194b3b27a2751efbd6b644261c1b98"
+    },
+    "ScamShield_AI_Final_Report.docx": {
+      "bytes": 444265,
+      "sha256": "f223fb7e1fd8dc9e7dffbd1b658ba1baee991bb5643279d1180acc2b14c90ecd"
+    }
+  }
+}
